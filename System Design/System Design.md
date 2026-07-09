@@ -9,6 +9,9 @@ System design is important to build a robust, scalable, and efficient software a
 ### Topics to Follow
 1. [[Introduction - HLD and LLD]]
 2. [[Requirement Analysis]]
+3. [[High Level Design]]
+	1. [[Drawing an HLD Diagram]]
+4. [[System Architectural Styles]]
 
 
 ## Tips and Tricks to Solve a System Design Problem
