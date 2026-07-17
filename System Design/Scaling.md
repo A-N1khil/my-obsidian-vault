@@ -1,0 +1,3 @@
+## Horizontal Scaling
+
+## Vertical Scaling
