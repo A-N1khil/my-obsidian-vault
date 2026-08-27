@@ -15,7 +15,7 @@ class Application(BaseModel):
     remote: bool = False # Defaults to False, also optional
 ```
 
-A JSON sent via the [[Request Bodies|request body]], it automatically serializes to the applied model. For the above model, the request body needs to have the company name to proceed without errors
+A JSON sent via the [[Path and Query Parameters#Request Bodies|request body]], it automatically serializes to the applied model. For the above model, the request body needs to have the company name to proceed without errors
 
 ### Additional Validation
 

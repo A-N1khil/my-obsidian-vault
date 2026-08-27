@@ -101,3 +101,56 @@ def get_applications(
 
 - Path parameters are used to identify a particular resource
 - Query parameters are mostly used to filter out resources based on conditions
+
+## Request Bodies
+Before understanding a request body, we need to understand [[Pydantic Models]]
+Once we have understood how Pydantic models work, all we need to do is create an endpoint
+
+```python
+# models/application.py
+class ApplicationCreate(BaseModel):
+    company: str
+    role: str
+    location: str | None = None
+
+# routers/application.py
+@app.post("/applications")
+def create_application(application: ApplicationCreate):
+    return application
+```
+
+Assuming we call this endpoint with a JSON
+```json
+{
+  "company": "Anthropic",
+  "role": "Software Engineer",
+  "location": "San Francisco",
+}
+```
+
+FastAPI automatically serializes the JSON to produce the `ApplicationCreate` object, thus providing useful functionality of accessing the object directly, rather than working with raw dict data
+```python
+application.company
+application.role
+```
+
+## Using all three at once?
+
+Yes, we can use all of these at once. FastAPI does the job of figuring out which is which. Consider the URL `PUT /applications/42?notify=true` with the request body of
+```json
+{
+  "company": "Anthropic",
+  "role": "Software Engineer"
+}
+```
+
+We can handle it all together via one function
+```python
+@app.put("/applications/{application_id}")
+def update_application(
+    application_id: int,
+    application: ApplicationCreate,
+    notify: bool = False
+):
+    pass
+```

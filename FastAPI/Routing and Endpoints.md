@@ -66,4 +66,3 @@ def add_applications(new_applications: list[ApplicationCreate]):
 ## Next ...
 
 [[Path and Query Parameters]]
-[[Request Bodies]]

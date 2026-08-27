@@ -1,1 +1,0 @@
-Before understanding a request body, we need to understand [[Pydantic Models]]
