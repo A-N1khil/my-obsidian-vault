@@ -1,2 +1,3 @@
 [[System Design]]
 [[FastAPI]]
+[[NextJS]]
