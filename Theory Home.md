@@ -8,4 +8,4 @@
 [[FastAPI]]
 
 ## DBs
-[[PostgresQL]]
+[[SQL Home]]

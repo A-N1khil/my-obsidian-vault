@@ -261,7 +261,7 @@ for a nicer error, but the DB constraint is the authoritative protection.
 
 ---
 
-# 8. Indexes
+## Indexes
 
 ```python
 email: Mapped[str] = mapped_column(
@@ -291,7 +291,7 @@ on everything. Indexes improve reads at the cost of storage and additional work 
 
 ---
 
-# 9. Default values
+## Default values
 
 Suppose an application starts as:
 
@@ -344,7 +344,7 @@ Neither is universally better. It depends on who should own the default.
 
 ---
 
-# 10. Timestamps
+## Timestamps
 
 Very common model fields:
 
@@ -376,7 +376,7 @@ We'll eventually extract these kinds of repeated fields into reusable base/mixin
 
 ---
 
-# 11. Enums
+## Enums
 
 Suppose ApplyFlow has:
 
@@ -428,7 +428,7 @@ application.status = "interveiw"  # 💀 typo reaches production
 
 ---
 
-# 12. A more realistic User model
+## A more realistic User model
 
 Putting several concepts together:
 
@@ -480,7 +480,7 @@ SQLAlchemy handles the mapped fields.
 
 ---
 
-## One important separation
+### One important separation
 
 Don't confuse:
 

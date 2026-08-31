@@ -2,7 +2,7 @@
 
 - [x] SQLAlchemy ORM Fundamentals
 - [x] Database Engine and Sessions
-- [ ] SQLAlchemy Models and Columns
+- [x] SQLAlchemy Models and Columns
 - [ ] Database CRUD Operations
 - [ ] Pydantic and SQLAlchemy Integration
 - [ ] Foreign Keys and Relationships
