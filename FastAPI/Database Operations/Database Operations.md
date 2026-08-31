@@ -1,5 +1,23 @@
-1. [[SQLAlchemy]]
-2. [[Database Engine and Sessions]]
-3. [[SQLAlchemy Models and Columns]]
-4. [[Pydantic with SQLAlchemy]]
-5. [[Foreign Keys and Relations]]
+## Setting up SQLAlchemy
+
+```bash
+pip install sqlalchemy psycopg[binary] pydantic-settings
+```
+- `sqlachemy` - ORM
+- `psycopg` - PostgreSQL driver
+- `pydantic-settings` - Managing environment variables
+
+
+> [!INFO] Prerequisite
+> For the Python setup to work, we need to have an instance of [[PostgresQL]] up and running
+
+
+
+
+
+## Next ...
+1. [[Database Engine and Sessions]]
+2. [[SQLAlchemy Models and Columns]]
+3. [[Pydantic with SQLAlchemy]]
+4. [[Foreign Keys and Relations]]
+5. [[Migrations with Alembic]]

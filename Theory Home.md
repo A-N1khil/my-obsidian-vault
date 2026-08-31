@@ -1,3 +1,11 @@
+## Theory
 [[System Design]]
-[[FastAPI]]
+
+## Frontend
 [[NextJS]]
+
+## Backend
+[[FastAPI]]
+
+## DBs
+[[PostgresQL]]

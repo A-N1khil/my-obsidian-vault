@@ -1,7 +1,7 @@
 ## Phase 3 — SQLAlchemy & Database Integration
 
-- [ ] SQLAlchemy ORM Fundamentals
-- [ ] Database Engine and Sessions
+- [x] SQLAlchemy ORM Fundamentals
+- [x] Database Engine and Sessions
 - [ ] SQLAlchemy Models and Columns
 - [ ] Database CRUD Operations
 - [ ] Pydantic and SQLAlchemy Integration
@@ -40,4 +40,4 @@ app = FastAPI()
 1. [[Routing and Endpoints]]
 2. [[Dependency Injection]]
 3. [[Environment Variables]]
-4. [[Database Operations]]]
+4. [[Database Operations]]
