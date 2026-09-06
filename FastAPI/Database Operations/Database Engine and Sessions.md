@@ -1,7 +1,7 @@
 ## Engine
 The `Engine` is SQLAlchemy's main interface to the database.
 
-```sql
+```python
 from sqlalchemy import create_engine
 
 engine = create_engine(
@@ -239,3 +239,40 @@ flowchart TB
 	A --"3 return connection" --> S1
 ```
 
+## All together..
+
+```python nums {9,11-15,18-19,22-24}
+from collections.abc import Generator
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
+
+from server.core.config import settings
+
+# Create the engine and sessionmaker for the database connection
+engine = create_engine(settings.database_url)
+
+SessionLocal = sessionmaker(
+    bind=engine,
+    autoflush=False,
+    expire_on_commit=False,
+)
+
+
+class Base(DeclarativeBase):
+    pass
+
+
+def get_db() -> Generator[Session, None, None]:
+    with SessionLocal() as database_session:
+        yield database_session
+
+```
+
+- Line 9 - creates the engine, which manages the connection to the PostgreSQL DB
+- Lines 11-15 - create the session
+	- `bind = engine` - uses the created engine for all the sessions created with this factory.
+	- `autoflush = False` - stops Alchemy from flushing after every query
+	- `expire_on_commit = False` - loaded objects remain readable after committing
+- Line 18 - Every database model will inherit from `Base`
+- Line 22 - `get_db` - the dependency

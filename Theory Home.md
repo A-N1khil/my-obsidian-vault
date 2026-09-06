@@ -3,6 +3,7 @@
 
 ## Frontend
 [[NextJS]]
+[[React Home|React]]
 
 ## Backend
 [[FastAPI]]

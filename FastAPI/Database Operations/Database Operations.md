@@ -21,5 +21,4 @@ pip install sqlalchemy psycopg[binary] pydantic-settings
 3. [[Database CRUD Operations]]
 4. [[Pydantic with SQLAlchemy]]
 5. [[Foreign Keys and Relations]]
-6. [[Sessions and Transactions]]
-7. [[Migrations with Alembic]]
+6. [[Migrations with Alembic]]

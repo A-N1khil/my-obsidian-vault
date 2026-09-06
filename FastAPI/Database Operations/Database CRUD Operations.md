@@ -19,7 +19,7 @@ db.commit()
 db.refresh(user)
 ```
 
-`db.add(...)` does not add the user directly into the database. It keeps the entry in the current [[Sessions and Transactions|transaction]]. `db.commit()` then adds all the operations held in the current transaction to the database.
+`db.add(...)` does not add the user directly into the database. It keeps the entry in the current transaction. `db.commit()` then adds all the operations held in the current transaction to the database.
 
 Instead of `commit`, one can also use `flush` to push the changes to the database and still keep the transaction running.
 
