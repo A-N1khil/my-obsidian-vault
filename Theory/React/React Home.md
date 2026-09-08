@@ -4,7 +4,7 @@
 2. [[State and Data Flow]]
 3. [[Rendering]]
 4. [[State Design with useState]]
-5. [[useEffect]]
+5. [[useEffect and Side Effects]]
 6. [[useRef and Custom Hooks]]
 
 # Day 2 — State, Effects & Hooks
