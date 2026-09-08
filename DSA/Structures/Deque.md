@@ -1,0 +1,1 @@
+Deques are modified versions of the [[Queues]] data structure that allows operations from both ends, first and last. 

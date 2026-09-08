@@ -1,0 +1,10 @@
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - Category
+      - URL
+      - file.folder
+  - type: table
+    name: View

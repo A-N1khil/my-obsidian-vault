@@ -1,0 +1,5 @@
+Dynamic Programming is an algorithmic technique with the following properties.
+
+- It is mainly an optimization over plain recursion. Wherever we see a recursive solution that has repeated calls for the same inputs, we can optimize it using Dynamic Programming.
+- The idea is to simply store the results of subproblems so that we do not have to recompute them when needed later. This simple optimization typically reduces time complexities from exponential to polynomial.
+- Some popular problems solved using Dynamic Programming are [Fibonacci Numbers,](https://www.geeksforgeeks.org/dsa/program-for-nth-fibonacci-number/) Diff Utility ([Longest Common Subsequence](https://www.geeksforgeeks.org/dsa/longest-common-subsequence-dp-4/)), [Bellman–Ford Shortest Path](https://www.geeksforgeeks.org/dsa/bellman-ford-algorithm-dp-23/), [Floyd Warshall](https://www.geeksforgeeks.org/dsa/floyd-warshall-algorithm-dp-16/), [Edit Distance](https://www.geeksforgeeks.org/dsa/edit-distance-dp-5/) and [Matrix Chain Multiplication](https://www.geeksforgeeks.org/dsa/matrix-chain-multiplication-dp-8/).
