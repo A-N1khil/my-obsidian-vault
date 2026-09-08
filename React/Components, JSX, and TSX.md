@@ -172,7 +172,8 @@ function ApplicationCard({
 ```
 
 ### Passing down Children as Props
-React also allows passing down other components as props. This enables extremely powerful composition[^1] patterns
+React also allows passing down other components as props. This enables extremely powerful composition[^1] patterns. 
+Components in React are essentially functions, but React controls their execution by associating them with various [[State and Data Flow|state management]] features.
 
 
 ## TSX
@@ -193,8 +194,7 @@ function ApplicationCard() {
 export default ApplicationCard;
 ```
 
-### Props (Typed)
-
+---
 [^1]: Composition is wrapping up one or multiple components inside another. This helps build a larger UI from smaller elements and facilitates easy data flow between them.
 
 [^2]: Fragments do not add additional DOM elements.

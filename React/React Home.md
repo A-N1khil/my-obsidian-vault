@@ -2,25 +2,10 @@
 
 1. [[Components, JSX, and TSX]]
 2. [[State and Data Flow]]
-3. [[Rendering and Component Flow]]
-
-- [ ] React Mental Model
-- [ ] JSX
-- [ ] Components
-- [ ] Props
-- [ ] Component Composition
-- [ ] Conditional Rendering
-- [ ] Rendering Lists
-- [ ] Keys
-- [ ] Event Handling
-- [ ] State with `useState`
-- [ ] State as a Snapshot
-- [ ] State Immutability
-- [ ] What Causes a Component to Re-render
-- [ ] Parent and Child Re-rendering
-- [ ] Derived State
-- [ ] Lifting State Up
-- [ ] Practice Project / Exercises
+3. [[Rendering]]
+4. [[State Design with useState]]
+5. [[useEffect]]
+6. [[useRef and Custom Hooks]]
 
 # Day 2 — State, Effects & Hooks
 
