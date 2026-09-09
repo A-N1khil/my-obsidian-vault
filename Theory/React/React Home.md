@@ -5,25 +5,8 @@
 3. [[Rendering]]
 4. [[State Design with useState]]
 5. [[useEffect and Side Effects]]
-6. [[useRef and Custom Hooks]]
-
-# Day 2 — State, Effects & Hooks
-
-- [ ] `useState` Deep Dive
-- [ ] Functional State Updates
-- [ ] State Structure and Best Practices
-- [ ] Controlled Components
-- [ ] `useEffect`
-- [ ] Effect Dependency Arrays
-- [ ] Effect Cleanup Functions
-- [ ] Synchronizing with External Systems
-- [ ] Stale Closures
-- [ ] When You Don't Need `useEffect`
-- [ ] `useRef`
-- [ ] DOM References
-- [ ] Mutable Values with Refs
-- [ ] Introduction to Custom Hooks
-- [ ] Practice Project / Exercises
+6. [[useRef]]
+7. [[Custom Hooks]]
 
 # Day 3 — Advanced State & React Patterns
 
