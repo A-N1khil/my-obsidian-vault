@@ -7,6 +7,8 @@
 5. [[useEffect and Side Effects]]
 6. [[useRef]]
 7. [[Custom Hooks]]
+8. [[Context and Shared State]]
+9. [[useReducer]]
 
 # Day 3 — Advanced State & React Patterns
 
