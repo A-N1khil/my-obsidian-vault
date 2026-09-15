@@ -302,15 +302,11 @@ static boolean hasCycle(
         int[] state
 ) {
     state[node] = 1;
-
     for (int neighbor : graph.get(node)) {
-
         if (state[neighbor] == 1) {
             return true;
         }
-
         if (state[neighbor] == 0) {
-
             if (hasCycle(
                     neighbor,
                     graph,
@@ -320,125 +316,206 @@ static boolean hasCycle(
             }
         }
     }
-
     state[node] = 2;
-
     return false;
 }
 ```
 
 Then:
-
-```
+```java
 static boolean containsCycle(List<List<Integer>> graph) {
-
     int[] state = new int[graph.size()];
-
     for (int node = 0; node < graph.size(); node++) {
-
         if (state[node] == 0) {
-
             if (hasCycle(node, graph, state)) {
                 return true;
             }
         }
     }
-
     return false;
 }
 ```
 
----
-
-# 13. Why Change State to `2`?
+### Why Change State to `2`?
 
 This line matters:
-
-```
+```java
 state[node] = 2;
 ```
 
-Consider:
-
-```
-    0
-   / \
-  ↓   ↓
-  1   2
-   \ /
-    ↓
-    3
-```
-
-Suppose we traverse:
-
-```
-0 → 1 → 3
-```
-
-When `dfs(3)` finishes:
-
-```
-state[3] = 2
+Consider the following graph and the orange path denoting the current DFS traversal
+```mermaid
+flowchart TB
+	A((0)) --> B((1)) & C((2)) --> D((3))
+	CurrentDFS(("DFS path"))
+	Processed(("Processed"))
+	
+	classDef orangeBox fill:#FFA500,stroke:#D48806,stroke-width:2px,color:#FFFFFF; 
+	classDef greenBox fill:#228B22,stroke:#1A6B1A,stroke-width:2px,color:#FFFFFF;
+	
+	subgraph stack
+		direction BT
+		A1["dfs(0)"] --> A2["dfs(1)"] --> A3["dfs(3)"]
+	end
+	
+	class CurrentDFS,A,B,D orangeBox
+	class Processed greenBox
 ```
 
-Later:
-
+When `dfs(3)` finishes, `state[3] = 2`. We head up the stack and reach `dfs(0)`. `2` is an **unprocessed and unvisited** neighbor of `0`, so we head down to `2` and then reach `3`
+```mermaid
+flowchart TB
+	A((0)) --> B((1)) & C((2)) --> D((3))
+	CurrentDFS(("DFS path"))
+	Processed(("Processed"))
+	
+	classDef orangeBox fill:#FFA500,stroke:#D48806,stroke-width:2px,color:#FFFFFF; 
+	classDef greenBox fill:#228B22,stroke:#1A6B1A,stroke-width:2px,color:#FFFFFF;
+	
+	subgraph stack
+		direction BT
+		A1["dfs(0)"] --> A2["dfs(2)"] --> A3["dfs(3)"]
+	end
+	
+	class CurrentDFS,A,C orangeBox
+	class Processed,B,D greenBox
 ```
-0 → 2 → 3
-```
 
-We see:
-
-```
-state[3] == 2
-```
-
-Meaning:
-
+We see `state[3] == 2`, meaning:
 > We've seen `3` before, but it is **not part of the current DFS path**.
 
-Therefore no cycle.
+Therefore, no cycle. That's the crucial difference between `state = 1` and `state = 2`.
 
-That's the crucial difference between:
+### A cyclic condition
 
+```mermaid
+flowchart TB
+    A((0)) --> C((2))
+    A --> B((1))
+    B --> D((3))
+    C --> D
+    D --> C
 ```
-state = 1
+
+#### DFS Traversal: 0, 1, 3
+
+```mermaid
+flowchart TB
+	A((0)) --> C((2))
+    A --> B((1))
+    B --> D((3))
+    C --> D
+    D --> C
+    subgraph States
+		CurrentDFS(("DFS path"))
+		Processed(("Processed"))
+	end
+	
+	classDef orangeBox fill:#FFA500,stroke:#D48806,stroke-width:2px,color:#FFFFFF; 
+	classDef greenBox fill:#228B22,stroke:#1A6B1A,stroke-width:2px,color:#FFFFFF;
+	
+	subgraph stack
+		direction BT
+		A1["dfs(0)"] --> A4["dfs(2)"] --> A2["dfs(1)"] --> A3["dfs(3)"]
+	end
+	
+	class CurrentDFS,A,B,D orangeBox
+	class Processed greenBox
+```
+#### Stack heads back to `dfs(0)`
+```mermaid
+flowchart TB
+	A((0)) --> C((2))
+    A --> B((1))
+    B --> D((3))
+    C --> D
+    D --> C
+    subgraph States
+		CurrentDFS(("DFS path"))
+		Processed(("Processed"))
+	end
+	
+	classDef orangeBox fill:#FFA500,stroke:#D48806,stroke-width:2px,color:#FFFFFF; 
+	classDef greenBox fill:#228B22,stroke:#1A6B1A,stroke-width:2px,color:#FFFFFF;
+	
+	subgraph stack
+		direction BT
+		A1["dfs(0)"] --> A4["dfs(2)"]
+	end
+	
+	class CurrentDFS,A,C orangeBox
+	class Processed,B,D greenBox
+```
+#### Down to 3 via 2
+```mermaid
+flowchart TB
+	A((0)) --> C((2))
+    A --> B((1))
+    B --> D((3))
+    C --> D
+    D --> C
+    subgraph States
+		CurrentDFS(("DFS path"))
+		Processed(("Processed"))
+	end
+	
+	classDef orangeBox fill:#FFA500,stroke:#D48806,stroke-width:2px,color:#FFFFFF; 
+	classDef greenBox fill:#228B22,stroke:#1A6B1A,stroke-width:2px,color:#FFFFFF;
+	
+	subgraph stack
+		direction BT
+		A1["dfs(0)"] --> A4["dfs(2)"] --> A2["dfs(3)"]
+	end
+	
+	class CurrentDFS,A,C orangeBox
+	class Processed,B,D greenBox
+```
+Here, we are back at node `3`, so we check the state
+```mermaid
+flowchart TB
+	A[node 3] --> S{State?}
+	S --"Zero"--> C["Not visited"]
+	S --"One"--> B["Same node, same DFS path"] --> D[Loop]
+	S --"Two"--> E["Already processed; No loop"]
+```
+But `3` was already processed without loops in the first traversal, so we head down the stack back to `dfs(2)`. Here, `state[2] = 1`, which means we are back to a node in the path, and this time the node is not processed, i.e., the current traversal is still running. Hence, we now have a cycle.
+
+```mermaid
+flowchart TB
+	A((0)) --> C((2))
+    A --> B((1))
+    B --> D((3))
+    C --> D
+    D --> C
+	
+    classDef redBox fill:#ff0000,stroke:#990000,color:#fff
+	
+	class C,D redBox
+
+    linkStyle 3,4 stroke:red
 ```
 
-and:
-
-```
-state = 2
-```
-
----
-
-# 14. Another Common Implementation
+## Another Common Implementation
 
 You'll also see people use two boolean arrays:
 
-```
+```java
 boolean[] visited;
 boolean[] pathVisited;
 ```
 
 where:
-
 ```
 visited[node]
     =
 Have I ever visited this node?
-
-
 pathVisited[node]
     =
 Is this node currently in my DFS path?
 ```
 
 Example:
-
-```
+```java
 static boolean dfs(
         int node,
         List<List<Integer>> graph,
@@ -475,23 +552,14 @@ static boolean dfs(
 
 This is equivalent to the three-state approach.
 
-I prefer:
+# Complexity
+Both algorithms still perform ordinary DFS. Every vertex is processed once $O(V)$, and every edge is examined $O(E)$. Therefore:
+$$ \boxed{O(V+E)} $$
+Space:
+$$ \boxed{O(V)} $$
 
-```
-int[] state;
-```
-
-because it combines both concepts cleanly:
-
-```
-0 → never visited
-
-1 → visited + currently in path
-
-2 → visited + finished
-```
+for visited/state plus the recursion stack.
 
 ---
 [^1]: Directed Acyclic Graph
-
 [^2]: This type of edge is commonly called a **back edge**

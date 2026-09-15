@@ -4,25 +4,30 @@ DFS goes deep along one path. **BFS explores the graph level by level.** This se
 # 1. How BFS Works
 
 Consider:
-```
-        0
-       / \
-      1   2
-     / \   \
-    3   4   5
-             \
-              6
-```
-
-Starting from `0`, BFS explores:
-```
-Level 0:        0
-
-Level 1:      1   2
-
-Level 2:     3 4   5
-
-Level 3:            6
+```mermaid
+---
+config:
+ look: handDrawn
+---
+flowchart TB
+	subgraph Level0
+		A((0))
+	end
+	subgraph Level1
+		B((1))
+		C((2))
+	end
+	subgraph Level2
+		D((3))
+		E((4))
+		F((5))
+	end
+	subgraph Level3
+		G((6))
+	end
+	A --> B & C
+	B --> D & E
+	C --> F --> G
 ```
 
 Traversal:

@@ -2,3 +2,6 @@
 2. [[Depth-First Search]]
 3. [[Breadth-First Search]]
 4. [[Grid Problems in Graphs]]
+5. [[Cycle Detection]]
+6. [[Bipartite Graphs and Graph Coloring]]
+7. [[Multi-Source BFS & Advanced BFS Patterns]]
