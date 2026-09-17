@@ -203,7 +203,6 @@ useEffect(() => {
 ```
 
 ## Race conditions
-
 `useEffect` can be a bottleneck for requests and can lead to race conditions. Consider the example below when `company` changes from "Google" to "Microsoft".
 ```tsx
 useEffect(() => {

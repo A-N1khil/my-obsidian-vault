@@ -1,5 +1,3 @@
-# Recursion in Competitive Coding
-
 Recursion in competitive programming is less about “a function calling itself” and more about learning to recognize **problems whose solution can be expressed in terms of smaller versions of the same problem**.
 
 Since you already code in Java, this focuses on the competitive-coding way of thinking about recursion, not basic programming syntax.
@@ -1221,7 +1219,6 @@ Subset Sum
 Partition Equal Subset Sum
 Target Sum
 ```
-
 ## 31. Recursion on Strings
 
 Strings often use the same index pattern.

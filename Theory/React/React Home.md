@@ -1,5 +1,3 @@
-# Day 1 — React Fundamentals & Mental Model
-
 1. [[Components, JSX, and TSX]]
 2. [[State and Data Flow]]
 3. [[Rendering]]
@@ -9,24 +7,10 @@
 7. [[Custom Hooks]]
 8. [[Context and Shared State]]
 9. [[useReducer]]
-
-# Day 3 — Advanced State & React Patterns
-
-- [ ] `useReducer`
-- [ ] `useState` vs `useReducer`
-- [ ] Context API
-- [ ] Context + Reducer Pattern
-- [ ] Prop Drilling and Alternatives
-- [ ] Custom Hooks
-- [ ] Component Composition Patterns
-- [ ] `children`
-- [ ] Designing Reusable Component APIs
-- [ ] `React.memo`
-- [ ] `useMemo`
-- [ ] `useCallback`
-- [ ] React DevTools
-- [ ] Understanding and Debugging Re-renders
-- [ ] Practice Project / Exercises
+10. [[memo, useMemo, and useCallback]]
+11. [[Forms and User Input]]
+12. [[Data Fetching and Async States]]
+13. [[Mutations & Building a CRUD Flow]]
 
 # Day 4 — Forms, APIs & Server State
 
